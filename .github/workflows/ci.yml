@@ -1,0 +1,17 @@
+name: Frontend APP DEMO
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'bugfix/**'
+      - 'chore/**'
+      - main #อย่าลืมลบถ้าใช้ flow ปกติ
+
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    environment: devolopment
+    steps:
+      - run: echo "I jET KKKKKKKKKKKK"
