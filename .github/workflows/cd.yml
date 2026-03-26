@@ -1,0 +1,23 @@
+name: Deploy to Github Page
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build-prod-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v5
+      - name: Setup node js v24.x
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.x'
+          cache: 'npm'
+      #- run: node -v
+      - name: Install dependencies
+        run: npm ci #clean i เเทน npm i
+      - name: Build Project
+        run: npm run build
