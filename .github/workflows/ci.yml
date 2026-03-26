@@ -18,4 +18,6 @@ jobs:
         with:
           node-version: '24.x'
           cache: 'npm'
-      - run: node -v
+      #- run: node -v
+      - run: npm ci #clean i เเทน npm i
+      - run: npm run lint
