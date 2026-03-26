@@ -10,8 +10,12 @@ on:
 
 
 jobs:
-  job-1:
+  lint-job:
     runs-on: ubuntu-latest
-    environment: devolopment
     steps:
-      - run: echo "I jET KKKKKKKKKKKK"
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.x'
+          cache: 'npm'
+      - run: node -v
