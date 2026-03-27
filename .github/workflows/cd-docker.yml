@@ -39,7 +39,7 @@ jobs:
           script: |
             docker -v
             docker logout ghcr.io
-            docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} ghcr.io/${{github.actor}}/${{ github.event.repository.name }}
+            docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}
             docker rm -f ${{ env.CONTAINER_NAME }} | true
             docker pull ${{ env.DOCKER_IMAGE_URL }}
             
