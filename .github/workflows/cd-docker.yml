@@ -25,9 +25,9 @@ jobs:
     needs: build-image-and-push-job
     environment: production_test
     env:
-      CONTAINER_NAME: Yutthanakc50
+      CONTAINER_NAME: ${{github.actor}}
       SERVER_PORT: 6969 #http://45.32.108.242:6969
-      DOCKER_IMAGE_URL: 'ghcr.io/Yutthanakc50/${{ github.event.repository.name }}:${{ github.ref.name }}'
+      DOCKER_IMAGE_URL: 'ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:${{ github.ref.name }}'
     steps:
       - name: Executing remote ssh to PRODUCTION server
         uses: appleboy/ssh-action@v1.2.5
@@ -39,7 +39,7 @@ jobs:
           script: |
             docker -v
             docker logout ghcr.io
-            docker login -u Yutthanakc50 -p ${{ secrets.GITHUB_TOKEN }} ghcr.io/ Yutthanakc50 /${{ github.event.repository.name }}
+            docker login -u ${{github.actor}} -p ${{ secrets.GITHUB_TOKEN }} ghcr.io/ ${{github.actor}} /${{ github.event.repository.name }}
             docker rm -f ${{ env.CONTAINER_NAME }} | true
             docker pull ${{ env.DOCKER_IMAGE_URL}}
             
