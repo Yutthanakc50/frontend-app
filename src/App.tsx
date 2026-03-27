@@ -17,7 +17,7 @@ function App() {
         </div>
         <div>
           <h1>I JET K</h1>
-          <h1>version 4.0.1</h1>
+          <h1>version 4.0.2</h1>
           <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
